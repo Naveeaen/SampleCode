@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.SampleCode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -22,11 +22,11 @@ public class Hardware {
 
     //initialize hardware stuff (method)
     public void init(HardwareMap hwMap){
-        arm = hwMap.get(DcMotor.class, "cm0"); // congifure deviceName in driver station
+        arm = hwMap.get(DcMotor.class, "cm0"); // congifure deviceName in driver station as 'cm0' (control hub, motor port 0)
         arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        pivot = hwMap.get(Servo.class, "cs0");
+        pivot = hwMap.get(Servo.class, "cs0"); // (control hub, servo port 0)
 
         claw = hwMap.get(Servo.class, "cs1");
     }

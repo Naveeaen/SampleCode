@@ -1,30 +1,31 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.SampleCode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
+import com.sun.tools.javac.comp.Todo;
 
 @TeleOp(name = "TeleOp") //set name of class on driver station
 public class TeleeOp extends LinearOpMode {
 
-    Hardware robot = Hardware.getInstance(); // access the Hardware class as 'robot'
     public void runOpMode(){
+        Hardware robot = Hardware.getInstance(); // access the Hardware class as 'robot'
         robot.init(hardwareMap); // call Hardware initialization method
 
-        waitForStart();
+        // define variables outside of loop
         double pivotPos = 0;
         double clawPos = 0;
         int armPos = 0;
 
-        // find these values using a tester class
-        double clawOpenPos;
-        double clawClosePos;
-        int armUpPos;
+        // TODO: get these values using a tester class (they are likely not all 0)
+        double clawOpenPos = 0;
+        double clawClosePos = 0;
+        int armUpPos = 0;
 
         boolean yPressed = false;
         boolean aPressed = false;
 
         // loop to make things go (put functions inside brackets)
+        waitForStart();
         while(opModeIsActive()){
 
             // pivot servo joystick control
@@ -55,7 +56,7 @@ public class TeleeOp extends LinearOpMode {
                 robot.claw.setPosition(clawPos);              // set claw to said position
             }
 
-            //set position buttons
+            // set position buttons
             if(gamepad2.y && !yPressed){
                 robot.pivot.setPosition(0.66);
                 robot.armTo(0);
@@ -65,7 +66,7 @@ public class TeleeOp extends LinearOpMode {
             }
             if(gamepad2.a && !aPressed){
                 robot.pivot.setPosition(0);
-                robot.armTo(100);
+                robot.armTo(armUpPos);
                 aPressed = true;
             } else if(!gamepad2.a){
                 aPressed = false;
